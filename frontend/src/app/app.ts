@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import {Toggle} from '../toggle'
 
 @Component({
@@ -6,7 +6,10 @@ import {Toggle} from '../toggle'
   standalone: true,
   imports: [Toggle],
     template: `
-    <main class="main">
+    <main class="main"
+[class.dark]="is_checked()"
+[class.light]="!is_checked()"
+    >
         <div class="content">
         <p>Chat</p>
         <p>parent-val: {{ is_checked() }}</p>
@@ -20,10 +23,17 @@ import {Toggle} from '../toggle'
     styles: `
     main {
         height: 100vh;
+    }
+    main.dark {
         background: black;
         color: white;
     }
+    main.light {
+        background: white;
+        color: black;
+    }
 `,
+
 })
 
 export class App {
