@@ -9,7 +9,11 @@ import {Toggle} from '../toggle'
     <main class="main">
         <div class="content">
         <p>Chat</p>
-        <toggle></toggle>
+        <p>parent-val: {{ is_checked() }}</p>
+        <toggle
+            [checked] = "is_checked()"
+            (changed) = "toggle_check()">
+        </toggle>
         </div>
     </main>
 `,
@@ -23,5 +27,8 @@ import {Toggle} from '../toggle'
 })
 
 export class App {
-  protected readonly title = signal('frontend');
+    is_checked = signal(false);
+    toggle_check(){
+        this.is_checked.update(v => !v);
+    }
 }
