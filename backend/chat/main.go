@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"backend/db"
-	"backend/pets"
+	"chat/db"
+	"chat/pets"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq" // postgres driver

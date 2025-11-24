@@ -1,4 +1,4 @@
-module backend
+module chat
 
 go 1.25.4
 
